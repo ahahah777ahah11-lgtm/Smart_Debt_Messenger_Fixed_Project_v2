@@ -1,0 +1,13 @@
+{
+  "projectType": "android-webview",
+  "name": "Smart Debt Messenger",
+  "package": "com.smartdebt.app",
+  "version": "1.0.0",
+  "entryPoint": "app/src/main/assets/www/index.html",
+  "buildTool": "gradle",
+  "jdkVersion": "17",
+  "targetSdk": 34,
+  "permissions": [
+    "INTERNET"
+  ]
+}
