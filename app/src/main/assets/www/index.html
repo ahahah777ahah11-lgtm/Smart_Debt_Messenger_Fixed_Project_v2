@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#111827"><title>Smart Debt Messenger</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div><h1>💳 Smart Debt Messenger</h1><p>إدارة حسابات العملاء وتذكيرات السداد</p></div><span class="pill">يعمل دون إنترنت</span></header>
+<main>
+<section class="stats">
+<article><span>إجمالي الرصيد المستحق</span><strong id="totalDebt">0</strong><small>ريال</small></article>
+<article><span>العملاء</span><strong id="customerCount">0</strong><small>عميل</small></article>
+<article><span>العملاء المدينون</span><strong id="debtorsCount">0</strong><small>عميل</small></article>
+</section>
+<section class="panel">
+<h2>إضافة عميل / تحديث بياناته</h2>
+<form id="customerForm">
+<input type="hidden" id="customerId">
+<label>اسم العميل<input id="name" required maxlength="120" placeholder="الاسم الكامل"></label>
+<label>رقم الهاتف<input id="phone" required inputmode="tel" maxlength="30" placeholder="رقم الهاتف مع مفتاح الدولة عند الحاجة"></label>
+<div class="formrow"><label>المبلغ المستحق<input id="debt" type="number" min="0" step="0.01" value="0" required></label>
+<label>ملاحظات<input id="notes" maxlength="250" placeholder="اختياري"></label></div>
+<div class="buttons"><button class="primary" type="submit" id="saveBtn">حفظ العميل</button><button type="button" id="resetBtn">مسح الحقول</button></div>
+</form>
+</section>
+<section class="panel">
+<div class="sectionhead"><h2>العملاء</h2><input id="search" placeholder="ابحث بالاسم أو الهاتف…" aria-label="بحث"></div>
+<div class="buttons importrow"><button type="button" id="importBtn">استيراد CSV</button><input id="fileInput" type="file" accept=".csv,text/csv,text/plain" hidden><button type="button" id="exportBtn">تصدير CSV</button><button type="button" id="backupBtn">نسخة احتياطية JSON</button><input id="backupInput" type="file" accept=".json,application/json" hidden><button type="button" id="restoreBtn">استعادة JSON</button></div>
+<p class="hint">ملفات CSV: الأعمدة بالترتيب اسم العميل، رقم الهاتف، الرصيد، الملاحظات. بياناتك محفوظة محليًا على هذا الجهاز.</p>
+<div id="customerList" class="customer-list"></div>
+<p id="emptyState" class="empty">لا يوجد عملاء بعد. أضف عميلًا أو استورد ملف CSV.</p>
+</section>
+<section class="panel"><h2>ملاحظات مهمة</h2><p class="hint">زر SMS يفتح تطبيق الرسائل مع نص جاهز لمراجعته وإرساله يدويًا. لا يتم إرسال أي رسالة تلقائيًا. احتفظ بنسخة احتياطية دورية من بياناتك.</p></section>
+</main>
+<footer>Smart Debt Messenger · إدارة محلية للبيانات</footer>
+<script src="app.js"></script>
+</body></html>
